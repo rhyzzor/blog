@@ -12,6 +12,15 @@
 
 
 <style>
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
 .title {
   text-decoration: none;
   color: inherit;
@@ -25,11 +34,10 @@
   font-size: 1.75rem;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  justify-content: space-between;
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
 }
+
 </style>
