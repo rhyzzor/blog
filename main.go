@@ -66,29 +66,19 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 	}
 
 	metaData := meta.Get(context)
-	title, ok := metaData["title"].(string)
-	if !ok {
-		return Post{}, fmt.Errorf("title must be a string")
+	title, err := extractString(metaData, "title")
+	if err != nil {
+		return Post{}, err
 	}
-	slug, ok := metaData["slug"].(string)
-	if !ok {
-		return Post{}, fmt.Errorf("slug must be a string")
+
+	slug, err := extractString(metaData, "slug")
+	if err != nil {
+		return Post{}, err
 	}
-	tagsInterface, ok := metaData["tags"].([]interface{})
-	if !ok {
-		return Post{}, fmt.Errorf("tags must be an array")
-	}
-	tags := make([]string, len(tagsInterface))
-	for i, tag := range tagsInterface {
-		tagStr, ok := tag.(string)
-		if !ok {
-			return Post{}, fmt.Errorf("all tags must be strings")
-		}
-		tags[i] = tagStr
-	}
-	date, ok := metaData["date"].(string)
-	if !ok {
-		return Post{}, fmt.Errorf("date must be a string")
+
+	date, err := extractString(metaData, "date")
+	if err != nil {
+		return Post{}, err
 	}
 
 	return Post{
@@ -98,4 +88,12 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 		Tags:    tags,
 		Date:    date,
 	}, nil
+}
+
+func extractString(metaData map[string]interface{}, key string) (string, error) {
+	value, ok := metaData[key].(string)
+	if !ok {
+		return "", fmt.Errorf("%s must be a string", key)
+	}
+	return value, nil
 }
