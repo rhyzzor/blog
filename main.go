@@ -81,6 +81,11 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 		return Post{}, err
 	}
 
+	tags, err := extractTags(metaData)
+	if err != nil {
+		return Post{}, err
+	}
+
 	return Post{
 		Title:   title,
 		Slug:    slug,
@@ -96,4 +101,22 @@ func extractString(metaData map[string]interface{}, key string) (string, error) 
 		return "", fmt.Errorf("%s must be a string", key)
 	}
 	return value, nil
+}
+
+func extractTags(metaData map[string]interface{}) ([]string, error) {
+	tagsInterface, ok := metaData["tags"].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("tags must be an array of strings")
+	}
+
+	tags := make([]string, len(tagsInterface))
+	for i, tag := range tagsInterface {
+		tagStr, ok := tag.(string)
+		if !ok {
+			return nil, fmt.Errorf("tag %d must be a string", i)
+		}
+		tags[i] = tagStr
+	}
+
+	return tags, nil
 }
