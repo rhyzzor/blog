@@ -4,8 +4,11 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
+	"path/filepath"
+	"sync"
 
 	"github.com/gin-gonic/gin"
 	"github.com/yuin/goldmark"
@@ -26,29 +29,61 @@ func main() {
 
 	r.LoadHTMLGlob("templates/*")
 
-	loadMarkdown("markdown")
+	posts, err := loadMarkdown("markdown")
+	if err != nil {
+		log.Fatalf("failed to load markdown: %v", err)
+	}
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
+	for _, post := range posts {
+		fmt.Println(post)
+	}
+
 	r.Run()
 }
 
-func loadMarkdown(dir string) {
-
+func loadMarkdown(dir string) ([]Post, error) {
 	files, err := os.ReadDir(dir)
 	if err != nil {
-		return
+		return nil, err
 	}
 
+	var posts []Post
+	var wg sync.WaitGroup
+	var mu sync.Mutex
+
 	for _, file := range files {
-		content, err := os.ReadFile(dir + "/" + file.Name())
-		if err != nil {
-			return
+		if filepath.Ext(file.Name()) != ".md" {
+			continue
 		}
-		parseMarkdownToHTML(content)
+
+		wg.Add(1)
+		go func(file os.DirEntry) {
+			defer wg.Done()
+
+			content, err := os.ReadFile(filepath.Join(dir, file.Name()))
+			if err != nil {
+				log.Printf("failed to read file %s: %v", file.Name(), err)
+				return
+			}
+
+			post, err := parseMarkdownToHTML(content)
+			if err != nil {
+				log.Printf("failed to parse markdown in file %s: %v", file.Name(), err)
+				return
+			}
+
+			mu.Lock()
+			posts = append(posts, post)
+			mu.Unlock()
+		}(file)
 	}
+
+	wg.Wait()
+	return posts, nil
 }
 
 func parseMarkdownToHTML(content []byte) (Post, error) {
