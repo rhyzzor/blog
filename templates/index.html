@@ -4,6 +4,29 @@
   <div class="container">
     {{ template "navbar.html" }}
 
+    <section class="description">
+      <p>
+        I'm a software developer from Brazil, currently 22 years old. This blog serves as a personal journal
+        where I share my interests and document my journey - both in my career and life. It's a space to reflect on my
+        experiences and keep track of everything I've learned and accomplished along the way.
+      </p>
+  
+      <p>
+        This is the <a href="https://github.com/rhyzzor/blog" target="_blank">blog repository</a>, you can see the source code of this blog.
+      </p>
+    </section>
+
+    <section>
+      <h2>Posts</h2>
+      <div class="posts">
+        {{ range .Posts }}
+          <a href="/{{ .Slug}}"> 
+            <strong> <p> {{ transformToShort .Date }} - {{ .Title }}</p></strong>
+            <p>{{ .Description }}</p> 
+          </a>
+        {{end}}
+      </div>
+    </section>
   </div>
 </body>
 
