@@ -29,6 +29,9 @@ type Post struct {
 
 func main() {
 	r := gin.Default()
+	r.SetFuncMap(template.FuncMap{
+		"transformToShort": transformToShort,
+	})
 
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/static", "./static")
@@ -183,4 +186,8 @@ func extractTags(metaData map[string]interface{}) ([]string, error) {
 	}
 
 	return tags, nil
+}
+
+func transformToShort(date time.Time) string {
+	return date.Format("2006-01-02")
 }
