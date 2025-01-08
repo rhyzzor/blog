@@ -55,6 +55,10 @@ func main() {
 		})
 	})
 
+	r.GET("/books", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "books.html", nil)
+	})
+
 	for _, post := range posts {
 		r.GET(fmt.Sprintf("/%s", post.Slug), func(c *gin.Context) {
 			c.HTML(http.StatusOK, "post.html", gin.H{
