@@ -35,11 +35,6 @@ body {
   position: relative;
 }
 
-@media screen and (min-width: 768px) {
-  body {
-    width: 40vw;
-  }
-}
 
 .description {
   display: flex;
@@ -76,11 +71,7 @@ body {
   font-size: 1.75rem;
 }
 
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-  }
-}
+
 
 
 /* navbar.html */
@@ -92,4 +83,33 @@ body {
 .navbar ul li {
   list-style-type: none;
   display: inline;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  width: 100%;
+}
+
+pre { 
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
+  overflow: auto;
+}
+
+ p img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 40vw;
+  }
 }
