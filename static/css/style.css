@@ -92,6 +92,8 @@ body {
   width: 100%;
 }
 
+/* post.html */
+
 pre { 
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
@@ -100,6 +102,37 @@ pre {
 
  p img {
   width: 100%;
+}
+
+/* books.html */
+
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  
+}
+
+.book-profile {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing);
+}
+
+.book-profile .book-description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.book-profile img {
+  width: 200px;
 }
 
 @media (max-width: 768px) {
