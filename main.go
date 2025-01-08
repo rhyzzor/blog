@@ -19,11 +19,12 @@ import (
 )
 
 type Post struct {
-	Title   string
-	Slug    string
-	Content template.HTML
-	Tags    []string
-	Date    time.Time
+	Title       string
+	Slug        string
+	Description string
+	Content     template.HTML
+	Tags        []string
+	Date        time.Time
 }
 
 func main() {
@@ -42,6 +43,10 @@ func main() {
 			"Posts": posts,
 		})
 	})
+
+	for _, post := range posts {
+		fmt.Print(post)
+	}
 
 	r.Run()
 }
@@ -115,6 +120,11 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 		return Post{}, err
 	}
 
+	description, err := extractString(metaData, "description")
+	if err != nil {
+		return Post{}, err
+	}
+
 	slug, err := extractString(metaData, "slug")
 	if err != nil {
 		return Post{}, err
@@ -131,11 +141,12 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 	}
 
 	return Post{
-		Title:   title,
-		Slug:    slug,
-		Content: template.HTML(buf.String()),
-		Tags:    tags,
-		Date:    date,
+		Title:       title,
+		Slug:        slug,
+		Content:     template.HTML(buf.String()),
+		Tags:        tags,
+		Description: description,
+		Date:        date,
 	}, nil
 }
 
@@ -153,7 +164,7 @@ func extractDate(metaData map[string]interface{}, key string) (time.Time, error)
 		return time.Time{}, fmt.Errorf("%s must be a string", key)
 	}
 
-	return time.Parse("2006-01-02", value)
+	return time.Parse("2006-01-02 15:04:05", value)
 }
 
 func extractTags(metaData map[string]interface{}) ([]string, error) {
