@@ -8,7 +8,9 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"sort"
 	"sync"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/yuin/goldmark"
@@ -21,7 +23,7 @@ type Post struct {
 	Slug    string
 	Content template.HTML
 	Tags    []string
-	Date    string
+	Date    time.Time
 }
 
 func main() {
@@ -35,14 +37,20 @@ func main() {
 	}
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"Posts": posts,
+		})
 	})
 
-	for _, post := range posts {
-		fmt.Println(post)
-	}
-
 	r.Run()
+}
+
+func sortByDate(posts []Post) []Post {
+	sort.Slice(posts, func(i, j int) bool {
+		return posts[i].Date.After(posts[j].Date)
+	})
+
+	return posts
 }
 
 func loadMarkdown(dir string) ([]Post, error) {
@@ -83,7 +91,7 @@ func loadMarkdown(dir string) ([]Post, error) {
 	}
 
 	wg.Wait()
-	return posts, nil
+	return sortByDate(posts), nil
 }
 
 func parseMarkdownToHTML(content []byte) (Post, error) {
@@ -111,7 +119,7 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 		return Post{}, err
 	}
 
-	date, err := extractString(metaData, "date")
+	date, err := extractDate(metaData, "date")
 	if err != nil {
 		return Post{}, err
 	}
@@ -136,6 +144,15 @@ func extractString(metaData map[string]interface{}, key string) (string, error) 
 		return "", fmt.Errorf("%s must be a string", key)
 	}
 	return value, nil
+}
+
+func extractDate(metaData map[string]interface{}, key string) (time.Time, error) {
+	value, ok := metaData[key].(string)
+	if !ok {
+		return time.Time{}, fmt.Errorf("%s must be a string", key)
+	}
+
+	return time.Parse("2006-01-02", value)
 }
 
 func extractTags(metaData map[string]interface{}) ([]string, error) {
