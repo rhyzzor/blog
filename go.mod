@@ -3,9 +3,15 @@ module github/rhyzzor/blog
 go 1.23.4
 
 require (
-	github.com/PuerkitoBio/goquery v1.10.1 // indirect
-	github.com/alecthomas/chroma v0.10.0 // indirect
-	github.com/alecthomas/chroma/v2 v2.15.0 // indirect
+	github.com/PuerkitoBio/goquery v1.10.1
+	github.com/alecthomas/chroma/v2 v2.15.0
+	github.com/gin-gonic/gin v1.10.0
+	github.com/yuin/goldmark v1.7.8
+	github.com/yuin/goldmark-highlighting/v2 v2.0.0-20230729083705-37449abec8cc
+	github.com/yuin/goldmark-meta v1.1.0
+)
+
+require (
 	github.com/andybalholm/cascadia v1.3.3 // indirect
 	github.com/bytedance/sonic v1.12.6 // indirect
 	github.com/bytedance/sonic/loader v0.2.1 // indirect
@@ -14,7 +20,6 @@ require (
 	github.com/dlclark/regexp2 v1.11.4 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
 	github.com/gin-contrib/sse v1.0.0 // indirect
-	github.com/gin-gonic/gin v1.10.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.23.0 // indirect
@@ -28,9 +33,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.3 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
-	github.com/yuin/goldmark v1.7.8 // indirect
-	github.com/yuin/goldmark-highlighting/v2 v2.0.0-20230729083705-37449abec8cc // indirect
-	github.com/yuin/goldmark-meta v1.1.0 // indirect
 	golang.org/x/arch v0.13.0 // indirect
 	golang.org/x/crypto v0.32.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
