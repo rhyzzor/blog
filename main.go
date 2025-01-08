@@ -30,6 +30,7 @@ func main() {
 	r := gin.Default()
 
 	r.LoadHTMLGlob("templates/*")
+	r.Static("/static", "./static")
 
 	posts, err := loadMarkdown("markdown")
 	if err != nil {
