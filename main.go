@@ -31,6 +31,7 @@ func main() {
 	r := gin.Default()
 	r.SetFuncMap(template.FuncMap{
 		"transformToShort": transformToShort,
+		"transformToLong":  transformToLong,
 	})
 
 	r.LoadHTMLGlob("templates/*")
@@ -48,7 +49,11 @@ func main() {
 	})
 
 	for _, post := range posts {
-		fmt.Print(post)
+		r.GET(fmt.Sprintf("/%s", post.Slug), func(c *gin.Context) {
+			c.HTML(http.StatusOK, "post.html", gin.H{
+				"Post": post,
+			})
+		})
 	}
 
 	r.Run()
@@ -190,4 +195,8 @@ func extractTags(metaData map[string]interface{}) ([]string, error) {
 
 func transformToShort(date time.Time) string {
 	return date.Format("2006-01-02")
+}
+
+func transformToLong(date time.Time) string {
+	return date.Format("2006-01-02 15:04:05")
 }
