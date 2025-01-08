@@ -9,11 +9,15 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 	"sync"
 	"time"
 
+	"github.com/PuerkitoBio/goquery"
+	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
 	"github.com/gin-gonic/gin"
 	"github.com/yuin/goldmark"
+	highlighting "github.com/yuin/goldmark-highlighting/v2"
 	meta "github.com/yuin/goldmark-meta"
 	"github.com/yuin/goldmark/parser"
 )
@@ -32,6 +36,9 @@ func main() {
 	r.SetFuncMap(template.FuncMap{
 		"transformToShort": transformToShort,
 		"transformToLong":  transformToLong,
+		"calculateReadingTime": func(content template.HTML) int {
+			return calculateReadingTime(content)
+		},
 	})
 
 	r.LoadHTMLGlob("templates/*")
@@ -111,7 +118,16 @@ func loadMarkdown(dir string) ([]Post, error) {
 func parseMarkdownToHTML(content []byte) (Post, error) {
 	var buf bytes.Buffer
 	markdown := goldmark.New(
-		goldmark.WithExtensions(meta.Meta),
+		goldmark.WithExtensions(
+			meta.Meta,
+			highlighting.NewHighlighting(
+				highlighting.WithStyle("onedark"),
+				highlighting.WithGuessLanguage(true),
+				highlighting.WithFormatOptions(
+					chromahtml.WithLineNumbers(true),
+				),
+			),
+		),
 		goldmark.WithParserOptions(
 			parser.WithAutoHeadingID(),
 		),
@@ -199,4 +215,22 @@ func transformToShort(date time.Time) string {
 
 func transformToLong(date time.Time) string {
 	return date.Format("2006-01-02 15:04:05")
+}
+
+func extractStringFromHTML(content template.HTML) string {
+	p := strings.NewReader(string(content))
+
+	doc, _ := goquery.NewDocumentFromReader(p)
+
+	doc.Find("pre").Remove()
+
+	return doc.Text()
+}
+
+func calculateReadingTime(content template.HTML) int {
+	words := extractStringFromHTML(content)
+
+	fmt.Print(words)
+
+	return len(strings.TrimSpace(words)) / 200
 }
