@@ -66,6 +66,10 @@ func main() {
 		})
 	}
 
+	r.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusNotFound, "404.html", nil)
+	})
+
 	r.Run()
 }
 

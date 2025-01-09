@@ -158,6 +158,15 @@ pre {
   width: 200px;
 }
 
+/* 404.html */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: var(--spacing-2x);
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
