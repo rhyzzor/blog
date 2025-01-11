@@ -2,7 +2,7 @@
 title: "[BR] C++ Addons no Node.js"
 slug: cpp-addons-no-node
 description: Uma pequena introdução ao uso de C++ Addons no Node.js
-date: 2025-12-02 18:00:00
+date: 2024-12-02 18:00:00
 ---
 ### O que são C++ Addons?
 

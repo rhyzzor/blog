@@ -2,7 +2,7 @@
 title: "[BR] Kysely + Kanel, a dupla perfeita"
 slug: kysely-kanel-a-dupla-perfeita
 description: Como configurar e integrar o Kysely, um query builder type-safe, com o Kanel, uma ferramenta que automatiza a geração de interfaces do banco de dados. Uma combinação perfeita para substituir o Raw SQL com segurança e eficiência.
-date: 2025-12-25 18:00:00
+date: 2025-12-24 18:00:00
 ---
 
 Eu sou uma pessoa que, desde que comecei a elaborar meus primeiros projetos (meu OT Pokémon e meus primeiros websites para o Habbo), sempre optei pelo **Raw SQL**. Sinceramente, ainda gosto bastante de escrever minhas próprias queries e ter um controle mais preciso sobre essa camada "low-level". Um ORM não me deixa totalmente confortável, pois já perdi dias analisando logs para identificar e otimizar queries ineficientes. 
