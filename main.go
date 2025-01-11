@@ -211,7 +211,9 @@ func extractStringFromHTML(content template.HTML) string {
 }
 
 func calculateReadingTime(content template.HTML) int {
-	words := extractStringFromHTML(content)
+	text := extractStringFromHTML(content)
 
-	return len(strings.TrimSpace(words)) / 200
+	words := strings.Fields(text)
+
+	return len(words) / 200
 }
