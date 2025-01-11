@@ -14,3 +14,15 @@ go.work
 **/._.DS_Store
 
 /static/fontawesome*
+
+# Docker and SSL related
+certbot/
+docker-compose.override.yml
+.env
+
+# Logs
+*.log
+nginx/logs/
+
+# Nginx Configs
+app.conf
