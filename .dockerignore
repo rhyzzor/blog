@@ -1,17 +1,17 @@
-# flyctl launch added from .gitignore
-**\node_modules
-**\*.exe
-**\*.exe~
-**\*.dll
-**\*.so
-**\*.dylib
-**\*.test
-**\*.out
-**\go.work
+# Ignorar arquivos binários e de compilação
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
 
-**\.DS_Store
-**\._.DS_Store
-**\**\.DS_Store
-**\**\._.DS_Store
+# Ignorar cache e arquivos temporários
+node_modules
+*.log
+*.tmp
 
-fly.toml
+# Ignorar arquivos do sistema
+.DS_Store
+._*
