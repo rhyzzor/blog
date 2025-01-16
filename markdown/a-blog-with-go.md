@@ -6,6 +6,8 @@ date: 2025-01-16 18:00:00
 ---
 I remember the first time I saw a blog, it was a blog with Tibia content and I was really impressed. After that, I knew I wanted to make my own blog, but I didn't know what the content I should write, I thought about having a gaming blog, a Tibia and Habbo blog, but I always left that "dream" for later. Now, many years later, I am finally creating my blog to share my journey.
 
+And the design of the blog is deliberate. It reminds me of the old Tibia blog I used to follow. That's the part I like best, it reminds me of my childhood
+
 ## Why Go?
 
 Well, my first decision it's made a blog with Nuxt (honestly, I really like Vue), but I was already spending hours using JavaScript in my job, so I should learn something new outside of work and for this year, I decided to improve my knowledge of Go. I also use Go for some things in my work, but not as much as JavaScript and I'm also sick of so many JavaScript frameworks (nothing against React, it's just my opinion).
