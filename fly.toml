@@ -17,7 +17,7 @@ primary_region = 'iad'
   internal_port = 8080
   force_https = true
   auto_stop_machines = 'off'
-  auto_start_machines = 'off'
+  auto_start_machines = false
   min_machines_running = 1
   processes = ['app']
 
