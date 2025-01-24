@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"errors"
 	"fmt"
 	"html/template"
 	"log"
@@ -29,7 +28,10 @@ type Post struct {
 	Description string
 	Content     template.HTML
 	Date        time.Time
+	URL         string
 }
+
+const url = "https://rhyzzor.com/"
 
 func main() {
 	r := gin.Default()
@@ -37,7 +39,6 @@ func main() {
 		"transformToShort": transformToShort,
 		"transformToLong":  transformToLong,
 		"setTitle":         setTitle,
-		"dict":             dict,
 		"calculateReadingTime": func(content template.HTML) int {
 			return calculateReadingTime(content)
 		},
@@ -53,12 +54,19 @@ func main() {
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
-			"Posts": posts,
+			"Posts":       posts,
+			"Title":       "",
+			"URL":         url,
+			"Description": "A blog to document my journey",
 		})
 	})
 
 	r.GET("/books", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "books.html", nil)
+		c.HTML(http.StatusOK, "books.html", gin.H{
+			"Title":       "Books",
+			"URL":         url + "books",
+			"Description": "This is a list of book that I've read",
+		})
 	})
 
 	for _, post := range posts {
@@ -175,6 +183,7 @@ func parseMarkdownToHTML(content []byte) (Post, error) {
 		Content:     template.HTML(buf.String()),
 		Description: description,
 		Date:        date,
+		URL:         url + slug,
 	}, nil
 }
 
@@ -227,19 +236,4 @@ func setTitle(text string) string {
 	}
 
 	return "Ryan Vieira's Blog"
-}
-
-func dict(values ...interface{}) (map[string]interface{}, error) {
-	if len(values)%2 != 0 {
-		return nil, errors.New("invalid dict call")
-	}
-	dict := make(map[string]interface{}, len(values)/2)
-	for i := 0; i < len(values); i += 2 {
-		key, ok := values[i].(string)
-		if !ok {
-			return nil, errors.New("dict keys must be strings")
-		}
-		dict[key] = values[i+1]
-	}
-	return dict, nil
 }
