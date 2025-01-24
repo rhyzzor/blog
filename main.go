@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"html/template"
 	"log"
@@ -35,6 +36,8 @@ func main() {
 	r.SetFuncMap(template.FuncMap{
 		"transformToShort": transformToShort,
 		"transformToLong":  transformToLong,
+		"setTitle":         setTitle,
+		"dict":             dict,
 		"calculateReadingTime": func(content template.HTML) int {
 			return calculateReadingTime(content)
 		},
@@ -216,4 +219,27 @@ func calculateReadingTime(content template.HTML) int {
 	words := strings.Fields(text)
 
 	return len(words) / 200
+}
+
+func setTitle(text string) string {
+	if text != "" {
+		return text + " | Ryan Vieira's Blog"
+	}
+
+	return "Ryan Vieira's Blog"
+}
+
+func dict(values ...interface{}) (map[string]interface{}, error) {
+	if len(values)%2 != 0 {
+		return nil, errors.New("invalid dict call")
+	}
+	dict := make(map[string]interface{}, len(values)/2)
+	for i := 0; i < len(values); i += 2 {
+		key, ok := values[i].(string)
+		if !ok {
+			return nil, errors.New("dict keys must be strings")
+		}
+		dict[key] = values[i+1]
+	}
+	return dict, nil
 }

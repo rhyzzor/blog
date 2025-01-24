@@ -1,10 +1,9 @@
 ---
-title: "Subroutines, coroutines, concurrency, parallelism and race condition."
+title: "Subroutines, coroutines, concurrency, parallelism and race condition"
 slug: concurrency
 description: A simple way to learn about concurrency and a little bit about processors.
 date: 2025-01-24 12:05:00
 ---
-
 I could very well deliver a generic answer about Concurrency x Parallelism, but I don't think I'd like that very much. So... last weekend, I studied more about how  processes used to work on our computer. So to start talking about concurrency, I think it's interesting to start with the topic of "subroutines a.k.a procedures"
 
 ## Subroutines
@@ -53,7 +52,6 @@ After this explanation, we realize that parallelism can be faster than concurren
 
 ![Parallelism Example](/static/images/parallelism.png)
 
-
 ## Race Condition
 
 One way doesn’t exclude the other because it can work both ways at the same time. For example, in thread 1, our program runs several tasks at once, and the same happens in thread 2. Eventually, we run into a problem: process A can’t switch with process B in the task queue. But if the scheduler decides they should switch anyway, the program could end up in conflict, with both processes trying to access the same resource at the same time, leading to unexpected results.
@@ -61,7 +59,6 @@ One way doesn’t exclude the other because it can work both ways at the same ti
 A good example of this is a bank account: imagine you withdraw two amounts at the same time, but the system wasn’t prepared for this. Let’s say your account has R$ 2000, and you try to withdraw R$ 1700 and R$ 1500 at the same time. Since the system doesn’t handle simultaneous transactions properly, it sees both withdrawals as valid because they each check the account balance of R$ 2000. They’re not “ordered,” and this causes an issue.
 
 ![Race Condition Example](/static/images/race-condition.png)
- 
 
 In Go, we can control access to resources using **Mutex** and **Channel**. In my experience with Go, Mutex often solve concurrency problems because they allow us to "lock" a resource until one process has completely finished using it.
 
@@ -101,4 +98,3 @@ func (a *BankAccount) Withdraw(amount int) error {
 For example, in the case of withdrawals, the R$ 1500 withdrawal would have to wait until the R$ 1700 withdrawal is finished because both are trying to access the same withdrawal functionality. The idea is that one process holds the lock while it's working with the resource, and the other process has to wait.
 
 So, after the first withdrawal of R$ 1700, the remaining balance would be R$ 300, and the R$ 1500 withdrawal would no longer be valid. This kind of error is quite common, but because it's so typical, it's relatively easy to find solutions and fix it (though, of course, it depends on your codebase, but let’s assume that’s the case).
-
