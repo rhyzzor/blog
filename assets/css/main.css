@@ -1,0 +1,28 @@
+:root {
+  --spacing: 16px;
+  --spacing-2x: calc(var(--spacing) * 2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html, 
+body {
+  font-weight: 300;
+  min-height: 100vh;
+  line-height: 1.5;
+
+  list-style-type: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80vw;
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
+}
