@@ -121,4 +121,5 @@ console.log('Resultado:', sum);
 Os addons são recursos poderosos quando o objetivo é otimizar o desempenho em operações críticas ou realizar integração com código nativo. Embora demandem conhecimento em C++ e aumentem a complexidade do projeto, eles podem ser a solução perfeita para situações em que o JavaScript puro não oferece a solução ideal. Graças a ferramentas como a **N-API**, o desenvolvimento de addons se tornou mais acessível e estável, permitindo que seus projetos combinem a praticidade do JavaScript com a eficiência do C++.
 
 **Link do Repositório:** [cpp-addon-nodejs](https://github.com/rhyzzor/cpp-addon-nodejs)
+
 **Referências:** [Node.js](https://nodejs.org/docs/latest/api/)

@@ -25,7 +25,7 @@ De antemão, você precisará ter um repositório com o NestJS inicializado, cas
 
 De início, vamos precisar instalar o próprio **Kysely**, sua CLI e o módulo do PostgreSQL para o Node.js.
 
-```
+```bash
 npm i kysely pg && npm i kysely-ctl --save-dev
 ```
 
@@ -131,7 +131,7 @@ export class DatabaseModule {}
 
 Vamos começar instalando nossas dependências.
 
-```
+```bash
 npm i kanel kanel-kysely --save-dev
 ```
 
