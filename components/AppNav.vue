@@ -25,7 +25,6 @@
 }
 
 .navbar ul li {
-  list-style-type: none;
   display: inline;
 }
 </style>
