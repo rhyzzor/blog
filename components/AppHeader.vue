@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a href="/" class="title">
-      <h1 class="title"> Rhyzzor's Blog</h1>
+      <h1> Rhyzzor's Blog</h1>
     </a>
 
     <AppNav />
