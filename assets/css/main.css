@@ -3,6 +3,8 @@
   --spacing-2x: calc(var(--spacing) * 2);
 }
 
+
+
 *,
 *::before,
 *::after {
@@ -13,6 +15,8 @@
 
 html, 
 body {
+  font-family: 'JetBrains Mono';
+
   font-weight: 300;
   min-height: 100vh;
   line-height: 1.5;
@@ -22,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 50vw;
+  width: 40vw;
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
 }
