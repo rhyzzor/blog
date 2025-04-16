@@ -2,7 +2,7 @@
   <nav class="navbar">
     <ul>
       <li>
-        <a href="/books">Books</a>
+        <a href="/projects">Projects</a>
       </li>
       <li>
         <a href="https://github.com/rhyzzor" target="_blank">GitHub</a>
