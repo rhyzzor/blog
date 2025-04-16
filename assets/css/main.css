@@ -30,8 +30,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  html,
-  body {
-    width: 80vw;
-  }
+	html,
+	body {
+		width: 80vw;
+	}
 }
