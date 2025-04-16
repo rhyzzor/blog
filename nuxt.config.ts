@@ -1,7 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: "2024-11-01",
-	devtools: { enabled: true },
+    compatibilityDate: "2024-11-01",
+    devtools: { enabled: true },
+  app:  {
+    head: {
+      title: "Rhyzzor's Blog",
+      htmlAttrs: {
+        lang: 'en'
+      },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ]
+    }
+  },
   content: {
     renderer: {
       anchorLinks: false,
@@ -21,5 +32,5 @@ export default defineNuxtConfig({
     ],
   },
   css: ["@/assets/css/main.css"],
-	modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/image"],
+    modules: ['@nuxtjs/seo', "@nuxt/content", "@nuxt/fonts", "@nuxt/image"],
 });
