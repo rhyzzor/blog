@@ -13,9 +13,9 @@ schemaOrg:
     author: 
       type: "Person"
       name: "Rhyzzor"
-    datePublished: "2025-01-02"
+    datePublished: "2024-12-02"
 description: Uma pequena introdução ao uso de C++ Addons no Node.js
-date: "2025-01-02T18:00:00Z"
+date: "2024-12-02T18:00:00Z"
 title: "[BR] C++ Addons no Node.js"
 ---
 ### O que são C++ Addons?
