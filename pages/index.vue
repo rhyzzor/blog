@@ -21,6 +21,12 @@ defineOgImage({
 		title: "Rhyzzor's Blog",
 	},
 });
+
+useSeoMeta({
+	description: "A blog to share my interests and document my journey.",
+	ogDescription: "A blog to document my journey",
+	robots: "index, follow",
+});
 </script>
 
 <style>
