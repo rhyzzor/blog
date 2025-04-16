@@ -9,7 +9,7 @@ I could very well deliver a generic answer about Concurrency x Parallelism, but 
 
 As you can see in the drawing below, a subroutine (also known as a procedure) is basically an executable unit that can be called in our main function. For example, let's say we have a **main()** function that executes a series of processes, and these processes are subroutines of our **main()** function. We have a **bob()** subroutine, and it is called inside the **main()** function. They will be executed sequentially; that is, **main()** will call **bob()** and then return to **main()**. In other words, **main()** will call **bob()**, **bob()** will be called, and then return to **main()**. But it's also worth remembering that once a subroutine has finished, it will return from the beginning again. If it is called again, it will start again from its initial step, which is very different from coroutines.
 
-![Subroutine Example](/static/images/subroutine.png)
+![Subroutine Example](/img/subroutine.png)
 
 ## Coroutines
 
@@ -17,7 +17,7 @@ Coroutines have been around for a long time, and back in the day, processors wer
 
 Coroutines have a special ability, unlike subroutines, they can "pause", i.e **yield**. They pause, save their context, and then other processes can run, creating the illusion of parallelism. In reality, it’s just a rapid alternation of tasks, all controlled by our Scheduler. However, our OS didn’t always work this way. There are other methods for executing this "task list," but they are quite similar.
 
-![Coroutine and Subroutine Example](/static/images/coroutine.png)
+![Coroutine and Subroutine Example](/img/coroutine.png)
 
 Here is a code example showing how subroutines and coroutines behave.
 
@@ -49,7 +49,7 @@ Well, the next step is a generic part about my studies. It's necessary to explai
 
 After this explanation, we realize that parallelism can be faster than concurrency because context switching can become a significant cost, depending on how concurrent your application is. But, as always, it depends a lot on the implementation—parallelism being faster is not a universal rule.
 
-![Parallelism Example](/static/images/parallelism.png)
+![Parallelism Example](/img/parallelism.png)
 
 ## Race Condition
 
@@ -57,7 +57,7 @@ One way doesn’t exclude the other because it can work both ways at the same ti
 
 A good example of this is a bank account: imagine you withdraw two amounts at the same time, but the system wasn’t prepared for this. Let’s say your account has R$ 2000, and you try to withdraw R$ 1700 and R$ 1500 at the same time. Since the system doesn’t handle simultaneous transactions properly, it sees both withdrawals as valid because they each check the account balance of R$ 2000. They’re not “ordered,” and this causes an issue.
 
-![Race Condition Example](/static/images/race-condition.png)
+![Race Condition Example](/img/race-condition.png)
 
 In Go, we can control access to resources using **Mutex** and **Channel**. In my experience with Go, Mutex often solve concurrency problems because they allow us to "lock" a resource until one process has completely finished using it.
 
