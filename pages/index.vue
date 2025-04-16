@@ -15,7 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-
+defineOgImageComponent("NuxtSEO", {
+	title: "Rhyzzor's Blog",
+	theme: "#FFFFFF",
+	colorMode: "dark",
+});
 </script>
 
 <style>
