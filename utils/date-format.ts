@@ -14,6 +14,7 @@ const formatDate = (date: Date | string | number, withTime = false): string => {
 			minute: "2-digit",
 			second: "2-digit",
 			hour12: false,
+			timeZone: "UTC",
 		}),
 	};
 
