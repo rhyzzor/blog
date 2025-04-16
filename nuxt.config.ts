@@ -17,11 +17,12 @@ export default defineNuxtConfig({
 			alternateName: "Ryan Vieira",
 			description: "Software Engineer",
 			image: "https://github.com/rhyzzor.png",
-			url: "https://rhyzzor.com",
+			url: "https://blog.rhyzzor.com",
 			sameAs: [
 				"https://twitter.com/rhyzzor",
 				"https://github.com/rhyzzor",
 				"https://linkedin.com/in/ryanvsouza",
+				"https://rpg.rhyzzor.com",
 			],
 		}),
 	},
