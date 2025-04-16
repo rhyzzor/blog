@@ -1,17 +1,26 @@
 <template>
 
-  <section v-if="post" class="information">
-    <h2>{{ post.title }}</h2>
-    <p>
-      <strong> Created at:</strong> {{ dateFormat(post.date, true) }}
-    </p>
-    <p>
-      <strong>Reading time:</strong>  {{ calculateReadingTime(post.rawbody) }} 
+  <template v-if="post">
+    <section class="information">
+      <h2>{{ post.title }}</h2>
+      <p>
+        <strong> Created at:</strong> {{ dateFormat(post.date, true) }}
+      </p>
+      <p>
+        <strong>Reading time:</strong>  {{ calculateReadingTime(post.rawbody) }} 
+  
+      </p>
+    </section>
+  
+    <ContentRenderer  :value="post" class="content" tag="section"/>
+  </template>
 
-    </p>
-  </section>
+  <template v-else >
+    <AppNotFound />
+  </template>
 
-  <ContentRenderer v-if="post" :value="post" class="content" tag="section"/>
+
+
 
 </template>
 
@@ -49,4 +58,6 @@ section strong {
     width: 100%;
   }
 }
+
+
 </style>
