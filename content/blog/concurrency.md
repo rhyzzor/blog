@@ -2,8 +2,8 @@
 ogImage: 
   props:
     title: "Subroutine"
-    description: "Subroutine Example"
-    image: "/img/subroutine.png"
+    description: "A simple way to learn about concurrency and a little bit about processors."
+    image: "/subroutine.png"
 sitemap:
   lastmod: 2025-04-15
 robots: index, follow
