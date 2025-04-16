@@ -1,4 +1,9 @@
 ---
+ogImage: 
+  component: BlogPost
+  props:
+    title: "[BR] C++ Addons no Node.js"
+    description: "Uma pequena introdução ao uso de C++ Addons no Node.js"
 sitemap:
   lastmod: 2025-04-15
 robots: index, follow

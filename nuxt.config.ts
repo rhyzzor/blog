@@ -4,14 +4,21 @@ import { definePerson } from "nuxt-schema-org/schema";
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
+	debug: true,
 	robots: {
 		allow: "*",
+	},
+	ogImage: {
+		componentOptions: {
+			global: true,
+		},
 	},
 	site: {
 		url: "https://blog.rhyzzor.com",
 		name: "Rhyzzor's Blog",
 	},
 	schemaOrg: {
+		debug: true,
 		identity: definePerson({
 			name: "Rhyzzor",
 			alternateName: "Ryan Vieira",
@@ -38,6 +45,8 @@ export default defineNuxtConfig({
 			author: "Rhyzzor",
 			ogType: "website",
 			description: "A blog to document my journey",
+			ogDescription: "A blog to document my journey",
+			twitterDescription: "A blog to document my journey",
 			themeColor: [
 				{ content: "#FFFFFF", media: "(prefers-color-scheme: light)" },
 			],
@@ -67,9 +76,12 @@ export default defineNuxtConfig({
 			},
 		],
 	},
-	image: {
-		format: ["png"],
-	},
 	css: ["@/assets/css/main.css"],
-	modules: ["@nuxtjs/seo", "@nuxt/content", "@nuxt/fonts", "@nuxt/image"],
+	modules: [
+		"@nuxtjs/seo",
+		"@nuxt/content",
+		"@nuxt/fonts",
+		"@nuxt/image",
+		"nuxt-og-image",
+	],
 });

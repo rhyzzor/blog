@@ -15,10 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-defineOgImageComponent("NuxtSEO", {
-	title: "Rhyzzor's Blog",
-	theme: "#FFFFFF",
-	colorMode: "dark",
+defineOgImage({
+	component: "BlogPost",
+	props: {
+		title: "Rhyzzor's Blog",
+	},
 });
 </script>
 

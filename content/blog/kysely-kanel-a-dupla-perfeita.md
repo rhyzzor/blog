@@ -1,4 +1,9 @@
 ---
+ogImage: 
+  component: BlogPost
+  props:
+    title: "[BR] Kysely + Kanel, a dupla perfeita"
+    description: "Como configurar e integrar o Kysely, um query builder type-safe, com o Kanel, uma ferramenta que automatiza a geração de interfaces do banco de dados. Uma combinação perfeita para substituir o Raw SQL com segurança e eficiência."
 sitemap:
   lastmod: 2025-04-15
 robots: index, follow

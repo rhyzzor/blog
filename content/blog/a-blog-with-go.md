@@ -1,4 +1,9 @@
 ---
+ogImage: 
+  component: BlogPost
+  props:
+    title: "A blog with Go"
+    description: "I've created a blog with Go. This is not a code tutorial."
 sitemap:
   lastmod: 2025-04-15
 robots: index, follow

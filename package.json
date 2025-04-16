@@ -15,7 +15,10 @@
 		"@nuxt/fonts": "0.11.1",
 		"@nuxt/image": "1.10.0",
 		"@nuxtjs/seo": "3.0.2",
+		"@unhead/vue": "2.0.7",
 		"nuxt": "3.16.2",
+		"nuxt-og-image": "5.1.2",
+		"unstorage": "1.15.0",
 		"vue": "3.5.13",
 		"vue-router": "4.5.0"
 	},
