@@ -4,7 +4,6 @@ import { definePerson } from "nuxt-schema-org/schema";
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
-	debug: true,
 	robots: {
 		allow: "*",
 	},
@@ -32,13 +31,6 @@ export default defineNuxtConfig({
 				"https://rpg.rhyzzor.com",
 			],
 		}),
-	},
-	app: {
-		head: {
-			templateParams: {
-				separator: " | ",
-			},
-		},
 	},
 	seo: {
 		meta: {
