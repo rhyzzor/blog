@@ -50,10 +50,6 @@ section strong {
   flex-direction: column;
   gap: var(--spacing);
 
-  p {
-    text-align: justify;
-  }
-
   img {
     width: 100%;
   }
