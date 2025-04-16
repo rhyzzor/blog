@@ -224,7 +224,7 @@ export class AppService {
 
 Repare que a tipagem que o Kanel gerou está funcionando corretamente, porque nosso editor de código irá sugerir justamente as colunas que criamos em nossa primeira migration.
 
-![Sugestão do Editor de Código](/img/kysely_example.png)
+![Sugestão do Editor de Código](/img/kysely-example.png)
 
 ### Considerações finais
 
