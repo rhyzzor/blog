@@ -1,7 +1,17 @@
 ---
-title: "[BR] C++ Addons no Node.js"
+sitemap:
+  lastmod: 2025-04-15
+robots: index, follow
+schemaOrg:
+  - "@type": "BlogPosting"
+    headline: "[BR] C++ Addons no Node.js"
+    author: 
+      type: "Person"
+      name: "Rhyzzor"
+    datePublished: "2025-01-02"
 description: Uma pequena introdução ao uso de C++ Addons no Node.js
-date: 2024-12-02 18:00:00
+date: "2025-01-02T18:00:00Z"
+title: "[BR] C++ Addons no Node.js"
 ---
 ### O que são C++ Addons?
 

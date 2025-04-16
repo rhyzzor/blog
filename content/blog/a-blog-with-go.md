@@ -1,7 +1,17 @@
 ---
-title: "A blog with Go"
+sitemap:
+  lastmod: 2025-04-15
+robots: index, follow
+schemaOrg:
+  - "@type": "BlogPosting"
+    headline: "A blog with Go"
+    author: 
+      type: "Person"
+      name: "Rhyzzor"
+    datePublished: "2025-01-02"
 description: I've created a blog with Go. This is not a code tutorial.
-date: 2025-01-16 18:00:00
+date: "2025-01-02T18:00:00Z"
+title: A blog with Go
 ---
 I remember the first time I saw a blog, it was a blog with Tibia content and I was really impressed. After that, I knew I wanted to make my own blog, but I didn't know what the content I should write, I thought about having a gaming blog, a Tibia and Habbo blog, but I always left that "dream" for later. Now, many years later, I am finally creating my blog to share my journey.
 

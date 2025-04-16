@@ -1,7 +1,22 @@
 ---
-title: "Subroutines, coroutines, concurrency, parallelism and race condition"
+ogImage: 
+  props:
+    title: "Subroutine"
+    description: "Subroutine Example"
+    image: "/img/subroutine.png"
+sitemap:
+  lastmod: 2025-04-15
+robots: index, follow
+schemaOrg:
+  - "@type": "BlogPosting"
+    headline: "Subroutines, coroutines, concurrency, parallelism and race condition"
+    author: 
+      type: "Person"
+      name: "Rhyzzor"
+    datePublished: "2025-01-24"
 description: A simple way to learn about concurrency and a little bit about processors.
-date: 2025-01-24 12:05:00
+title: Subroutines, coroutines, concurrency, parallelism and race condition
+date: "2025-01-24T12:05:00Z"
 ---
 I could very well deliver a generic answer about Concurrency x Parallelism, but I don't think I'd like that very much. So... last weekend, I studied more about how  processes used to work on our computer. So to start talking about concurrency, I think it's interesting to start with the topic of "subroutines a.k.a procedures"
 

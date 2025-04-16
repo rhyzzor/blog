@@ -1,13 +1,29 @@
+import { definePerson } from "nuxt-schema-org/schema";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
+	robots: {
+		allow: "*",
+	},
 	site: {
 		url: "https://blog.rhyzzor.com",
 		name: "Rhyzzor's Blog",
 	},
 	schemaOrg: {
-		identity: "Person",
+		identity: definePerson({
+			name: "Rhyzzor",
+			alternateName: "Ryan Vieira",
+			description: "Software Engineer",
+			image: "https://github.com/rhyzzor.png",
+			url: "https://rhyzzor.com",
+			sameAs: [
+				"https://twitter.com/rhyzzor",
+				"https://github.com/rhyzzor",
+				"https://linkedin.com/in/ryanvsouza",
+			],
+		}),
 	},
 	app: {
 		head: {
@@ -19,7 +35,9 @@ export default defineNuxtConfig({
 	seo: {
 		meta: {
 			description: "A blog to document my journey",
-			themeColor: [{ content: "white", color: "#ffffff" }],
+			themeColor: [
+				{ content: "white", media: "(prefers-color-scheme: light)" },
+			],
 		},
 	},
 	content: {
