@@ -2,13 +2,24 @@
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
+	site: {
+		url: "https://blog.rhyzzor.com",
+		name: "Rhyzzor's Blog",
+	},
+	schemaOrg: {
+		identity: "Person",
+	},
 	app: {
 		head: {
-			title: "Rhyzzor's Blog",
-			htmlAttrs: {
-				lang: "en",
+			templateParams: {
+				separator: " | ",
 			},
-			link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+		},
+	},
+	seo: {
+		meta: {
+			description: "A blog to document my journey",
+			themeColor: [{ content: "white", color: "#ffffff" }],
 		},
 	},
 	content: {
@@ -34,6 +45,9 @@ export default defineNuxtConfig({
 				preload: true,
 			},
 		],
+	},
+	image: {
+		format: ["png"],
 	},
 	css: ["@/assets/css/main.css"],
 	modules: ["@nuxtjs/seo", "@nuxt/content", "@nuxt/fonts", "@nuxt/image"],
