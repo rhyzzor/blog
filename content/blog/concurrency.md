@@ -1,7 +1,7 @@
 ---
 ogImage: 
   props:
-    title: "Subroutine"
+    title: "Subroutines, coroutines, concurrency, parallelism and race condition"
     description: "A simple way to learn about concurrency and a little bit about processors."
     image: "/subroutine.png"
 sitemap:
