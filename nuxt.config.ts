@@ -34,9 +34,11 @@ export default defineNuxtConfig({
 	},
 	seo: {
 		meta: {
+			author: "Rhyzzor",
+			ogType: "website",
 			description: "A blog to document my journey",
 			themeColor: [
-				{ content: "white", media: "(prefers-color-scheme: light)" },
+				{ content: "#FFFFFF", media: "(prefers-color-scheme: light)" },
 			],
 		},
 	},
