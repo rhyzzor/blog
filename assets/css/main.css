@@ -1,0 +1,38 @@
+:root {
+	--spacing: 16px;
+	--spacing-2x: calc(var(--spacing) * 2);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: 0;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	font-family: "JetBrains Mono";
+  text-align: justify;
+
+	font-weight: 300;
+	min-height: 100vh;
+	line-height: 1.5;
+
+	list-style-type: none;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	width: 50vw;
+	padding-top: var(--spacing);
+	padding-bottom: var(--spacing);
+}
+
+@media (max-width: 768px) {
+	html,
+	body {
+		width: 80vw;
+	}
+}
