@@ -33,4 +33,10 @@
 .title h1 {
   font-size: 1.75rem;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+}
 </style>

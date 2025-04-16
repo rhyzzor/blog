@@ -28,3 +28,10 @@ body {
 	padding-top: var(--spacing);
 	padding-bottom: var(--spacing);
 }
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 80vw;
+  }
+}
