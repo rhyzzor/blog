@@ -8,7 +8,8 @@
       </p>
 
       <p>
-        This is the <a href="https://github.com/rhyzzor/blog" target="_blank">blog repository</a>, you can see the
+        This is the <NuxtLink to="https://github.com/rhyzzor/blog" target="_blank">blog repository</NuxtLink>, you can
+        see the
         source code of this blog.
       </p>
     </section>

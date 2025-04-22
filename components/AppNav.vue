@@ -2,13 +2,13 @@
   <nav class="navbar">
     <ul>
       <li>
-        <a href="/projects">Projects</a>
+        <NuxtLink to="/projects">Projects</NuxtLink>
       </li>
       <li>
-        <a href="https://github.com/rhyzzor" target="_blank">GitHub</a>
+        <NuxtLink to="https://github.com/rhyzzor" target="_blank">GitHub</NuxtLink>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/ryanvsouza/" target="_blank">LinkedIn</a>
+        <NuxtLink to="https://www.linkedin.com/in/ryanvsouza/" target="_blank">LinkedIn</NuxtLink>
       </li>
     </ul>
   </nav>

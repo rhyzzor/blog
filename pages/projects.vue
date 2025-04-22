@@ -1,13 +1,15 @@
 <template>
   <div class="projects-container">
-    <p class="main-description">Welcome to my projects showcase. Here you'll find a collection of my work including open-source NPM packages and projects I've developed. Each project represents my approach to solving specific problems with clean, maintainable code.</p>
-    
+    <p class="main-description">Welcome to my projects showcase. Here you'll find a collection of my work including
+      open-source NPM packages and projects I've developed. Each project represents my approach to solving specific
+      problems with clean, maintainable code.</p>
+
     <section class="projects-section">
       <div class="project-grid">
         <div v-for="project in projects" :key="project.name" class="project-card">
           <div class="project-header">
             <h3>
-              <a :href="project.link" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
+              <NuxtLink :to="project.link" target="_blank" rel="noopener noreferrer">{{ project.name }}</NuxtLink>
             </h3>
             <span class="project-type-tag" :class="`type-${project.type}`">
               {{ project.type }}
@@ -129,7 +131,7 @@ const projects = [
 }
 
 .type-npm {
-  background-color: #cb3837; 
+  background-color: #cb3837;
   color: white;
 }
 
