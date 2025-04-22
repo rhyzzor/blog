@@ -31,7 +31,7 @@ export default defineNuxtConfig({
 				"https://twitter.com/rhyzzor",
 				"https://github.com/rhyzzor",
 				"https://linkedin.com/in/ryanvsouza",
-				"https://rpg.rhyzzor.com",
+				"https://bot.rhyzzor.com",
 			],
 		}),
 	},

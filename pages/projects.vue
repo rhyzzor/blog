@@ -47,7 +47,7 @@ const projects = [
 		name: "Rhyzzor Bot",
 		description:
 			"Simplify character creation, track stats, manage inventory, and focus on what matters most - your adventure!",
-		link: "https://rpg.rhyzzor.com",
+		link: "https://bot.rhyzzor.com",
 		type: "bot",
 		technologies: ["Next.js", "Discord.js", "Turso"],
 	},
