@@ -4,9 +4,9 @@ import { definePerson } from "nuxt-schema-org/schema";
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
-  app: {
-    pageTransition: { name: "slide-right", mode: "out-in" },
-  },
+	app: {
+		pageTransition: { name: "slide-right", mode: "out-in" },
+	},
 	robots: {
 		allow: "*",
 	},
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
 	},
 	seo: {
 		meta: {
-      googleSiteVerification: "vXDc6EPwMC39SuQCnExHo4Ybip4nlYNthSWahECVZak",
+			googleSiteVerification: "vXDc6EPwMC39SuQCnExHo4Ybip4nlYNthSWahECVZak",
 			author: "Rhyzzor",
 			ogType: "website",
 			description: "A blog to document my journey",

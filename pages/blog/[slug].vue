@@ -1,27 +1,24 @@
 <template>
-
   <template v-if="post">
-    <section class="information">
-      <h2>{{ post.title }}</h2>
-      <p>
-        <strong> Created at:</strong> {{ dateFormat(post.date, true) }}
-      </p>
-      <p>
-        <strong>Reading time:</strong>  {{ calculateReadingTime(post.rawbody) }} 
-  
-      </p>
-    </section>
-  
-    <ContentRenderer  :value="post" class="content" tag="section"/>
+    <div>
+      <section class="information">
+        <h2>{{ post.title }}</h2>
+        <p>
+          <strong> Created at:</strong> {{ dateFormat(post.date, true) }}
+        </p>
+        <p>
+          <strong>Reading time:</strong> {{ calculateReadingTime(post.rawbody) }}
+
+        </p>
+      </section>
+
+      <ContentRenderer :value="post" class="content" tag="section" />
+    </div>
   </template>
 
-  <template v-else >
+  <template v-else>
     <AppNotFound />
   </template>
-
-
-
-
 </template>
 
 <script lang="ts" setup>
@@ -40,12 +37,11 @@ useSeoMeta(post.value?.seo || {});
 </script>
 
 <style>
-
 section strong {
   font-weight: bold;
 }
 
-.content{
+.content {
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
@@ -54,6 +50,4 @@ section strong {
     width: 100%;
   }
 }
-
-
 </style>
