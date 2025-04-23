@@ -22,9 +22,11 @@
 </template>
 
 <script lang="ts" setup>
-const slug = useRoute().params.slug as string;
+const route = useRoute();
+const slug = route.params.slug as string;
 
-const { data: post } = await useAsyncData(`blog-${slug}`, () => {
+
+const { data: post } = await useAsyncData(route.path, () => {
 	return queryCollection("blog").path(`/blog/${slug}`).first();
 });
 
